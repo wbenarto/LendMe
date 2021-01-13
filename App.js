@@ -1,7 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import {
+  useDeviceOrientation,
+  useDimensions,
+} from "@react-native-community/hooks";
 import {
   StyleSheet,
+  Dimensions,
   Text,
   TouchableOpacity,
   Image,
@@ -10,33 +16,27 @@ import {
   SafeAreaView,
   Button,
   Platform,
+  ImageBackground,
 } from "react-native";
 
 export default function App() {
   console.log("App executed");
+  console.log(useDimensions());
+
+  const { landscape } = useDeviceOrientation();
 
   return (
-    <SafeAreaView style={[styles.container, containerStyle]}>
-      <Button
-        title="Click Me"
-        onPress={() =>
-          Alert.prompt("Title", "Message", (text) => console.log(text))
-        }
-      >
-        Click Me
-      </Button>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <WelcomeScreen />
+    </View>
   );
 }
-
-const containerStyle = { backgroundColor: "orange" };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     justifyContent: "center",
-    alignItems: "center",
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    alignItems: "baseline",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 40,
   },
 });
