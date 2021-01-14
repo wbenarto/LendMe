@@ -8,9 +8,7 @@ function WelcomeScreen(props) {
     <ImageBackground
       style={styles.background}
       source={require("../assets/IMG_0605.jpg")}
-    >
-      <Text>TEST</Text>
-    </ImageBackground>
+    ></ImageBackground>
   );
 }
 
