@@ -59,39 +59,27 @@
 
 // export default GoalInput;
 import React, { useState } from "react";
-import { StyleSheet, TextInput, View, Text, Button } from "react-native";
+import { View, Text, TextInput, Button, Modal } from "react-native";
 
 function GoalInput(props) {
   const [newGoal, setNewGoal] = useState("");
 
-  const handleChange = (e) => {
-    console.log(e);
-    setNewGoal(e);
+  const handleChange = (event) => {
+    console.log(event);
+    setNewGoal(event);
   };
-
   return (
-    <View style={styles.input}>
-      <TextInput
-        style={styles.textInput}
-        onChangeText={handleChange}
-        title="Leave your dreams in this box"
-      ></TextInput>
-      <Button onPress={() => props.onPress(newGoal)} title="+"></Button>
-    </View>
+    <Modal visible={props.visible}>
+      <View style={{ marginTop: 50 }}>
+        <TextInput
+          value={newGoal}
+          onChangeText={handleChange}
+          title="Insert Goal"
+        ></TextInput>
+        <Button title="+" onPress={() => props.onPress(newGoal)}></Button>
+      </View>
+    </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  input: {
-    flexDirection: "row",
-  },
-  textInput: {
-    padding: 20,
-    width: "100%",
-    height: 35,
-    backgroundColor: "white",
-    borderBottomColor: "black",
-  },
-});
 
 export default GoalInput;

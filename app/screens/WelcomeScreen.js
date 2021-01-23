@@ -1,14 +1,25 @@
 import React from "react";
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import {
+  ImageBackground,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Button,
+} from "react-native";
 
 function WelcomeScreen(props) {
   console.log("Welcome page");
 
   return (
-    <ImageBackground
-      style={styles.background}
-      source={require("../assets/IMG_0605.jpg")}
-    ></ImageBackground>
+    <SafeAreaView style={styles.background}>
+      <Button
+        title={"Click here to go to Categories"}
+        onPress={() => {
+          props.navigation.navigate("Categories");
+        }}
+      ></Button>
+    </SafeAreaView>
   );
 }
 
@@ -17,6 +28,8 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     opacity: 0.7,
+
+    ImageBackground: { uri: "../assets/IMG_0605.jpg" },
   },
   login: {
     width: "100%",

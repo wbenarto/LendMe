@@ -24,7 +24,7 @@ import { View, Text } from "react-native";
 function GoalItem(props) {
   return (
     <View>
-      <Text>{props.item}</Text>
+      <Text onPress={() => props.onPress(props.id)}>{props.goal}</Text>
     </View>
   );
 }
