@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Text, View, FlatList, StyleSheet, Button } from "react-native";
-import GoalInput from "./app/components/GoalInput";
-import GoalItem from "./app/components/GoalItem";
+import * as Font from "expo-font";
+import { AppLoading } from "expo";
+import { enableScreens } from "react-native-screens";
 
 import AppNavigator from "./app/navigation/AppNavigator";
 

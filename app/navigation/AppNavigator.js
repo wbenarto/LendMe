@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import WelcomeScreen from "../screens/WelcomeScreen";
 import CategoriesScreen from "../screens/CategoriesScreen";
-import CategoryMeals from "../screens/CategoryMeals";
+import CategoryMealsScreen from "../screens/CategoryMealsScreen";
 
 const Stack = createStackNavigator();
 
@@ -12,14 +12,17 @@ function AppNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Welcome" component={WelcomeScreen}></Stack.Screen>
+        <Stack.Screen
+          name="Welcome to Webe Sushi"
+          component={WelcomeScreen}
+        ></Stack.Screen>
         <Stack.Screen
           name="Categories"
           component={CategoriesScreen}
         ></Stack.Screen>
         <Stack.Screen
           name="CategoryMeals"
-          component={CategoryMeals}
+          component={CategoryMealsScreen}
         ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

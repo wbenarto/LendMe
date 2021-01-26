@@ -20,8 +20,7 @@ const CategoriesScreen = (props) => {
     return (
       <CategoryGridTile
         title={itemData.item.title}
-        type={itemData.item.type}
-        price={itemData.item.price}
+        image={itemData.item.imageUrl}
         onSelect={() => {
           props.navigation.navigate("CategoryMeals", {
             categoryId: itemData.item.id,
@@ -34,9 +33,7 @@ const CategoriesScreen = (props) => {
   };
 
   return (
-    <View style={styles.screen}>
-      <FlatList numColumns={2} data={CATEGORIES} renderItem={renderGridItem} />
-    </View>
+    <FlatList numColumns={2} data={CATEGORIES} renderItem={renderGridItem} />
   );
 };
 

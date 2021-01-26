@@ -1,11 +1,8 @@
 import { createNavigatorFactory } from "@react-navigation/native";
 
 class Category {
-  constructor(id, title, type, price) {
-    (this.id = id),
-      (this.title = title),
-      (this.type = type),
-      (this.price = price);
+  constructor(id, title, imageUrl) {
+    (this.id = id), (this.title = title), (this.imageUrl = imageUrl);
   }
 }
 
