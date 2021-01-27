@@ -19,13 +19,13 @@ const CategoriesScreen = (props) => {
   const renderGridItem = (itemData) => {
     return (
       <CategoryGridTile
+        style={{ width: "100%", flexDirection: "row" }}
         title={itemData.item.title}
         image={itemData.item.imageUrl}
         onSelect={() => {
           props.navigation.navigate("CategoryMeals", {
             categoryId: itemData.item.id,
-            categoryType: itemData.item.type,
-            categoryPrice: itemData.item.price,
+            categoryTitle: itemData.item.title,
           });
         }}
       ></CategoryGridTile>
@@ -33,7 +33,12 @@ const CategoriesScreen = (props) => {
   };
 
   return (
-    <FlatList numColumns={2} data={CATEGORIES} renderItem={renderGridItem} />
+    <FlatList
+      style={styles.screen}
+      numColumns={1}
+      data={CATEGORIES}
+      renderItem={renderGridItem}
+    />
   );
 };
 
@@ -46,12 +51,7 @@ CategoriesScreen.navigationOptions = {
 };
 
 const styles = StyleSheet.create({
-  screen: {
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "white",
-    flex: 1,
-  },
+  screen: {},
 });
 
 export default CategoriesScreen;

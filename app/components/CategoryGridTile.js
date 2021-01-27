@@ -12,50 +12,53 @@ const CategoryGridTile = (props) => {
 
   return (
     <View style={styles.gridItem}>
-      <ImageBackground
-        style={styles.categoryBackground}
-        source={{ uri: props.image }}
-      >
-        <TouchableOpacity style={{ flex: 1 }} onPress={props.onSelect}>
-          <View style={styles.container}>
+      <TouchableOpacity style={styles.container} onPress={props.onSelect}>
+        <ImageBackground
+          style={styles.categoryBackground}
+          source={{ uri: props.image }}
+        >
+          <View>
             <Text style={styles.title}>{props.title}</Text>
             <Text>{props.type}</Text>
             <Text>{props.price}</Text>
           </View>
-        </TouchableOpacity>
-      </ImageBackground>
+        </ImageBackground>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   gridItem: {
-    flex: 1,
-    margin: 15,
-    borderRadius: 10,
-    height: 150,
+    marginTop: 20,
+
+    height: 200,
+    width: "100%",
   },
   container: {
     flex: 1,
     borderRadius: 30,
+    width: "100%",
     height: 150,
     shadowColor: "black",
-    shadowOpacity: 0.26,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 10,
-    elevation: 3,
-    padding: 10,
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
   },
   title: {
     fontFamily: "open-sans-bold",
     fontSize: 22,
-    textAlign: "right",
+    textAlign: "center",
+    backgroundColor: "gold",
+    width: 100,
+    borderRadius: 20,
   },
   categoryBackground: {
     width: "100%",
     height: "100%",
+    flex: 1,
+    shadowOpacity: 1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 10,
+    elevation: 3,
+    borderRadius: 20,
   },
 });
 export default CategoryGridTile;

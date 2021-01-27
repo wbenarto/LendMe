@@ -16,9 +16,9 @@ function WelcomeScreen(props) {
     <View style={styles.background}>
       <TouchableOpacity
         style={{ flex: 1 }}
-        onPress={() => {
-          props.navigation.navigate("Categories");
-        }}
+        // onPress={() => {
+        //   props.navigation.navigate("Categories");
+        // }}
       >
         <View style={styles.logoView}>
           <ImageBackground

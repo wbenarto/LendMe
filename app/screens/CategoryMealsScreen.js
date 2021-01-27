@@ -21,7 +21,18 @@ function CategoryMealsScreen(props) {
 
   const renderMeals = (itemData) => {
     console.log("render : " + itemData);
-    return <MealItem data={itemData} />;
+    return (
+      <MealItem
+        data={itemData}
+        onPress={() => props.onPress(itemData)}
+        onSelectMeal={() => {
+          props.navigation.navigate("MealDetails", {
+            mealId: itemData.item.id,
+            data: itemData.item,
+          });
+        }}
+      />
+    );
   };
   return (
     <View>
